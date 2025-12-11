@@ -9,13 +9,13 @@ from sklearn.pipeline import Pipeline
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.ensemble import RandomForestRegressor
 
-# Load data
+# Data
 df = pd.read_csv("marketing_campaign.csv")
 
 # Clean Acquisition_Cost
 df["Acquisition_Cost"] = df["Acquisition_Cost"].replace(r'[\$,]', '', regex=True).astype(float)
 
-# Feature engineering
+
 df["CTR"] = (df["Clicks"] / df["Impressions"]) * 100
 df["CPC"] = df["Acquisition_Cost"] / df["Clicks"]
 
